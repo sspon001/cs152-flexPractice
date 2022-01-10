@@ -11,13 +11,14 @@ R_paren	[)]
 equal	[=]
 
 %%
-{digit}	printf("NUMBER [%d]\n", yytext) ;
+{digit}	printf("NUMBER [%s]\n", yytext) ;
 {plus}	printf("+\n") ;
 {minus}	printf("-\n") ;
 {mult}	printf("*\n") ;
 {L_paren} printf("L_PAREN\n") ;
-{hex}	printf("This is a hexadecimal number [%s].\n", yytext) ;
--	printf("ERROR\n") ;
+{R_paren} printf("R_PAREN\n") ;
+{alpha} printf("ERROR\n") ;
+.	printf("") ;
 %%
 
 main() {
